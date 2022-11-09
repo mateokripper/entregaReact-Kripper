@@ -1,0 +1,8 @@
+.cardProducto{
+    margin: 10px;
+}
+.itemDetail{
+    max-width: 549px;
+    margin-top:20px;
+    align-items: center;
+}

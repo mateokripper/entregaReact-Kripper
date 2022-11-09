@@ -1,10 +1,33 @@
-import './styles/ItemListContainer.css'
+import { useEffect , useState} from 'react'
+import {consultarBDD} from '../assets/funciones.js'
+import ItemList from './ItemList.jsx'
+import { useParams } from 'react-router-dom'
 
-const ItemListContainer = ({greeting= "Bienvenido"}) => {
+export const ItemListContainer = () => {
+    
+    const [productos, setProductos] = useState([])
+    const {category} = useParams()
+    useEffect(()=>{
+        if(category){
+          consultarBDD('../json/productos.json').then(products=>{
+            const productsList = products.filter(prod => prod.idCat === parseInt(category))
+            const cardProductos = ItemList ({productsList})
+              setProductos(cardProductos)
+          })
+        }else{
+          consultarBDD('./json/productos.json').then(productsList=>{
+            const cardProductos = ItemList ({productsList})
+              setProductos(cardProductos)
+          })
+        }
+        
+        
+    },[])
+    
   return (
-    <>
-    <p>{greeting}</p>
-    </>
+    <div className='row'>
+    {productos}
+    </div>
   )
 }
 
