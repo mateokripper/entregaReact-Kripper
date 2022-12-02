@@ -1,5 +1,5 @@
 import { useEffect , useState} from 'react'
-import {consultarBDD} from '../assets/funciones.js'
+import {getProductos} from '../assets/firebase.js'
 import ItemList from './ItemList.jsx'
 import { useParams } from 'react-router-dom'
 
@@ -9,20 +9,20 @@ export const ItemListContainer = () => {
     const {category} = useParams()
     useEffect(()=>{
         if(category){
-          consultarBDD('../json/productos.json').then(products=>{
-            const productsList = products.filter(prod => prod.idCat === parseInt(category))
+          getProductos().then(products=>{
+            const productsList = products.filter(prod => prod.brand === category)
             const cardProductos = ItemList ({productsList})
               setProductos(cardProductos)
           })
         }else{
-          consultarBDD('./json/productos.json').then(productsList=>{
+          getProductos().then(productsList=>{
             const cardProductos = ItemList ({productsList})
               setProductos(cardProductos)
           })
         }
         
         
-    },[])
+    },[category])
     
   return (
     <div className='row'>

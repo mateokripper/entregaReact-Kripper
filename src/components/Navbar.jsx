@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import CartWidget from "./CartWidget"
-
-const Navbar = () => {
+import React from 'react'
+const Navbar = React.memo ( () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
     <div className="container-fluid">
@@ -19,22 +19,22 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-          <Link className='nav-link' to={`category/1`}>
+          <Link className='nav-link' to={`/category/Affligem`}>
               <button className="btn btn-light">Affligem</button>
           </Link>
           </li>
           <li className="nav-item">
-          <Link className='nav-link' to={`category/2`}>
+          <Link className='nav-link' to={`/category/Trappistes`}>
               <button className="btn btn-light">Trappistes</button>
           </Link>
           </li>
           <li className="nav-item">
-          <Link className='nav-link' to={`category/3`}>
+          <Link className='nav-link' to={`/category/St Bernardus`}>
               <button className="btn btn-light">St Bernardus</button>
           </Link>
           </li>
           <li className="nav-item">
-          <Link className='nav-link' to={`category/4`}>
+          <Link className='nav-link' to={`/category/Chimay`}>
               <button className="btn btn-light">Chimay</button>
           </Link>
           </li>
@@ -45,6 +45,6 @@ const Navbar = () => {
     </div>
   </nav>
   )
-}
+})
 
 export default Navbar

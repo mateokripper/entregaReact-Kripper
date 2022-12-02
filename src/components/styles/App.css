@@ -6,3 +6,12 @@
     margin-top:20px;
     align-items: center;
 }
+
+.detailButton{
+    margin: 10px;
+}
+
+.itemQty{
+    position:fixed;
+    margin: 25px;
+}
