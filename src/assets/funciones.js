@@ -6,4 +6,4 @@ export const consultarBDD = async (ruta) => {
         
 }
 
-//cargarBDD()
+cargarBDD()

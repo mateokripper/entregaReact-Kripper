@@ -5,28 +5,28 @@ import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = () => {
     
-    const [productos, setProductos] = useState([])
-    const {category} = useParams()
-    useEffect(()=>{
-        if(category){
-          getProductos().then(products=>{
-            const productsList = products.filter(prod => prod.brand === category)
-            const cardProductos = ItemList ({productsList})
-              setProductos(cardProductos)
-          })
-        }else{
-          getProductos().then(productsList=>{
-            const cardProductos = ItemList ({productsList})
-              setProductos(cardProductos)
-          })
-        }
-        
-        
-    },[category])
+  
+  const [productos, setProductos] = useState([])
+  const {category} = useParams()
+  useEffect(()=>{
+      if(category){
+        getProductos().then(products=>{
+          const productsList = products.filter(prod => prod.brand === category)
+            setProductos(productsList)
+        })
+      }else{
+        getProductos().then(productsList=>{
+            setProductos(productsList)
+        })
+      }
+      
+      
+  },[category])
     
   return (
     <div className='row'>
-    {productos}
+    {productos.length === 0 	? <h1> Cargando ... </h1>
+		: <ItemList productsList ={productos} ></ItemList>}
     </div>
   )
 }
