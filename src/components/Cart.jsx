@@ -20,10 +20,10 @@ const Cart = () => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{prod.name}</h5>
+                <h5 className="card-title">{prod.nombre}</h5>
                 <p className="card-text">Cantidad: {prod.cant} </p>
-                <p className="card-text">Precio unitario: {prod.price}</p>
-                <p className="card-text">Subtotal: {prod.price * prod.cant}</p>
+                <p className="card-text">Precio unitario: {prod.precio}</p>
+                <p className="card-text">Subtotal: {prod.precio * prod.cant}</p>
               </div>
               <button className="btn btn-warning" onClick={()=> removeItem(prod.id)}>Eliminar Producto</button>
             </div>

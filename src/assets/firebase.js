@@ -23,7 +23,7 @@ const db = getFirestore()
     D
             DELETE
 */
-const cargarBDD = async () => {
+/*const cargarBDD = async () => {
     const promise = await fetch('./json/productos.json')
     const productos = await promise.json()
     productos.forEach(async (prod) => {
@@ -39,7 +39,7 @@ const cargarBDD = async () => {
         })
     })
 }
-
+*/
 //Read Producto
 const getProductos = async() => {
     const productos = await getDocs(collection(db, "productos"))
@@ -54,7 +54,7 @@ const getProducto = async (id) => {
 }
 
 //Create producto
-/*const createProducto = async (objProducto)=>{
+const createProducto = async (objProducto)=>{
     const estado = await addDoc(collection(db, "productos"),{
         nombre: objProducto.name,
         marca: objProducto.brand,
@@ -101,5 +101,5 @@ const getOrdenCompra=async(id)=>{
     const ordenCompra = {...item.data(), id: item.id}
     return ordenCompra
 }
-*/
-export {cargarBDD, getProductos, getProducto}
+
+export { getProductos, getProducto, createProducto, updateProducto, deleteProducto, createOrdenCompra, getOrdenCompra}
