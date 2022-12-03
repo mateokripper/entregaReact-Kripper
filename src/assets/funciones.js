@@ -5,5 +5,4 @@ export const consultarBDD = async (ruta) => {
     return productos
         
 }
-
-cargarBDD()
+//cargarBDD()

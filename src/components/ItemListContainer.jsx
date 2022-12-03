@@ -5,22 +5,20 @@ import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = () => {
     
-  
   const [productos, setProductos] = useState([])
   const {category} = useParams()
   useEffect(()=>{
-      if(category){
-        getProductos().then(products=>{
-          const productsList = products.filter(prod => prod.brand === category)
-            setProductos(productsList)
-        })
-      }else{
-        getProductos().then(productsList=>{
-            setProductos(productsList)
-        })
-      }
-      
-      
+    if(category){
+      getProductos().then(products=>{
+        const productsList = products.filter(prod => prod.marca === category)
+          setProductos(productsList)
+      })
+    }else{
+      getProductos().then(productsList=>{
+          setProductos(productsList)
+      })
+    }
+    
   },[category])
     
   return (
